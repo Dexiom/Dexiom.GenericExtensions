@@ -43,5 +43,17 @@ namespace Dexiom.GenericExtensions.Tests
             Assert.IsTrue(intValue1.IsDefaultForType());
             Assert.IsFalse(intValue2.IsDefaultForType());
         }
+
+        [TestMethod()]
+        public void CloneTest()
+        {
+            var temp = new Exception {Source = "toto"};
+            var tempClone = temp.Clone();
+            temp.Source += "Source";
+            tempClone.Source += "Clone";
+
+            Assert.IsTrue(temp.Source == "totoSource");
+            Assert.IsTrue(tempClone.Source == "totoClone");
+        }
     }
 }
